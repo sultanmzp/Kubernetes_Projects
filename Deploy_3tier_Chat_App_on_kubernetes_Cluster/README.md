@@ -75,9 +75,9 @@ kubectl apply -f k8s/frontend-service.yaml
 
 ---
 
-## 🌐 Accessing the Application (KIND on EC2)
+## 🌐 Accessing the Application (EC2)
 
-Since KIND runs inside Docker, services are exposed using **NodePort** or **kubectl port-forward**.
+Services are exposed using **NodePort** or **kubectl port-forward**.
 
 ### Option 1: Port Forward
 ```bash
@@ -114,7 +114,7 @@ kubectl logs <pod-name> -n chat-app-ns
 - Persistent storage with **PV & PVC**
 - Debugging **CrashLoopBackOff** and DNS issues
 - Environment variable management
-- Exposing applications from KIND clusters
+- Exposing applications from EC2 clusters
 
 ---
 
