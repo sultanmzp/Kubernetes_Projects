@@ -19,7 +19,7 @@ To design, containerize, and deploy a **production-ready three-tier application*
 ## 🛠️ Technologies Used
 
 - **Containerization:** Docker
-- **Orchestration:** Kubernetes (KIND on EC2)
+- **Orchestration:** Kubernetes (AWS EC2)
 - **Frontend:** React
 - **Backend:** Node.js (Express)
 - **Database:** MongoDB
