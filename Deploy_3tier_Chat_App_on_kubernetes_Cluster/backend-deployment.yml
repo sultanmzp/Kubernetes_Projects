@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: chat-app-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: chat-app-backend
+          image: sultanmzp/chatapp-backend:latest
+          ports:
+          - containerPort: 5001 #same port as in the backend server.js file/ check docker file
+          env:
+          - name: NODE_ENV
+            value: "production"
+          - name: PORT
+            value: "5001"
+          - name: MONGODB_URI
+            value: "mongodb://root:root@mongodb-service:27017/chatdb?authSource=admin"
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: chat-app-secret
+                key: jwt
