@@ -1,0 +1,53 @@
+# Default values for wordpress
+replicaCount: 1
+
+image:
+  wordpress:
+    repository: wordpress
+    tag: latest
+    pullPolicy: IfNotPresent
+  mysql:
+    repository: mysql
+    tag: "8.0"
+    pullPolicy: IfNotPresent
+
+service:
+  wordpress:
+    type: ClusterIP
+    port: 80
+  mysql:
+    port: 3306
+    clusterIP: None
+
+ingress:
+  enabled: true
+  className: nginx
+  host: wordpress.hkhinfoteck.xyz
+  path: /
+  pathType: Prefix
+
+persistence:
+  wordpress:
+    enabled: false
+    storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 3Gi
+  mysql:
+    enabled: false
+    storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 1Gi
+
+mysql:
+  rootPassword: rootpassword
+  database: wordpress
+  user: wordpress
+  password: wordpresspass
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

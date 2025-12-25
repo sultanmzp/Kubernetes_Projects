@@ -1,0 +1,7 @@
+apiVersion: v2
+name: wordpress
+description: A Helm chart for WordPress with MySQL
+type: application
+version: 0.1.2
+appVersion: "latest"
+icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
